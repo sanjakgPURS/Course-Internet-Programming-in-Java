@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Forma za registraciju novog korisnika</title>
+</head>
+<body>
+<form method="post" action="">
+   Ime: <input type="text" size="10" maxlength="40" name="name">
+   <br/>
+   Prezime: <input type="text" size="10" maxlength="40" name="surname">
+   <br/> 
+   POL:
+   		<input type="radio" name="pol" value="M">Musko
+   		<input type="radio" name="pol" value="Z">Zensko		
+   <br/> 
+   Datum rodjenja:  <input type="date" name="bday">
+   <br/> 
+   <select name="Drzava">
+			<option>Bosna i Hercegovina</option>
+			<option>Srbija</option>
+			<option>Hrvatska</option>
+			<option>Makedonija</option>
+			<option>Slovenija</option>
+			<option>Crna Gora</option>
+	</select>
+    <br/>
+    E-mail: 
+    <input type="email" name="email" required>
+    <br/> 
+    Password:
+    <input type="password" name="psw" required>
+    <br/> 
+    Password2:
+     <input type="password" name="psw2" required>
+    <br/>
+    <input name="file" type="file" /> 
+    <br/>
+    <input type="submit" value="Posalji podatke">
+    
+</form>
+
+</body>
+</html>
