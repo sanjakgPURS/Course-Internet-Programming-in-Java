@@ -7,7 +7,7 @@ html {
   font-family: 'Arimo', sans-serif;
 }
 
-div.main {
+main {
   z-index: 2;
   position: relative;
   height: 100%;
