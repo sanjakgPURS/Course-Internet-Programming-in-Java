@@ -47,9 +47,9 @@ public class DatabaseOperation {
 				stuObj.setPassword(resultSetObj.getString("student_password"));  
 				stuObj.setGender(resultSetObj.getString("student_gender"));  
 				stuObj.setAddress(resultSetObj.getString("student_address"));				
-				stuObj.setAddress(resultSetObj.getString("student_godinaSt"));
-				stuObj.setAddress(resultSetObj.getString("student_budzet"));
-				stuObj.setAddress(resultSetObj.getString("student_stanjeRacuna"));
+				stuObj.setGodinaSt(resultSetObj.getString("student_godinaSt"));
+				stuObj.setbudzet(resultSetObj.getBoolean("student_budzet"));
+				stuObj.setstanjeRacuna(resultSetObj.getInt("student_stanjeRacuna"));
 				
 				studentsList.add(stuObj);  
 			}   
@@ -72,7 +72,7 @@ public class DatabaseOperation {
 			pstmt.setString(3, newStudentObj.getPassword());
 			pstmt.setString(4, newStudentObj.getGender());
 			pstmt.setString(5, newStudentObj.getAddress());
-			pstmt.setString(6, newStudentObj.getgodinaSt());
+			pstmt.setString(6, newStudentObj.getGodinaSt());
 			pstmt.setBoolean(7, newStudentObj.getbudzet());
 			pstmt.setInt(8, newStudentObj.getstanjeRacuna());
 			saveResult = pstmt.executeUpdate();
@@ -109,7 +109,7 @@ public class DatabaseOperation {
 				editRecord.setAddress(resultSetObj.getString("student_address"));
 				editRecord.setPassword(resultSetObj.getString("student_password")); 
 				
-				editRecord.setgodinaSt(resultSetObj.getString("student_godinaSt"));
+				editRecord.setGodinaSt(resultSetObj.getString("student_godinaSt"));
 				editRecord.setbudzet(resultSetObj.getBoolean("student_budzet"));
 				editRecord.setstanjeRacuna(resultSetObj.getInt("student_stanjeRacuna")); 
 			}
@@ -130,7 +130,7 @@ public class DatabaseOperation {
 			pstmt.setString(3,updateStudentObj.getPassword());  
 			pstmt.setString(4,updateStudentObj.getGender());  
 			pstmt.setString(5,updateStudentObj.getAddress()); 
-			pstmt.setString(6,updateStudentObj.getgodinaSt());  
+			pstmt.setString(6,updateStudentObj.getGodinaSt());  
 			pstmt.setBoolean(7,updateStudentObj.getbudzet());  
 			pstmt.setInt(8,updateStudentObj.getstanjeRacuna()); 			
 			pstmt.setInt(9,updateStudentObj.getId());  

@@ -72,11 +72,11 @@ public class StudentBean {
 	}  
 	
 	
-	public String getgodinaSt() {
+	public String getGodinaSt() {
 		return godinaSt;	
 	}
 
-	public void setgodinaSt(String godinaSt) {
+	public void setGodinaSt(String godinaSt) {
 		this.godinaSt = godinaSt;
 	}
 
