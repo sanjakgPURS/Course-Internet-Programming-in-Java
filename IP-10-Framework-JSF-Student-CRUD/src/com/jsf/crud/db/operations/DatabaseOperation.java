@@ -25,7 +25,7 @@ public class DatabaseOperation {
 			Class.forName("com.mysql.jdbc.Driver");     
 			String db_url ="jdbc:mysql://localhost:3306/students",
 					db_userName = "root",
-					db_password = "root";
+					db_password = "test";
 			connObj = DriverManager.getConnection(db_url,db_userName,db_password);  
 		} catch(Exception sqlException) {  
 			sqlException.printStackTrace();
@@ -46,7 +46,11 @@ public class DatabaseOperation {
 				stuObj.setEmail(resultSetObj.getString("student_email"));  
 				stuObj.setPassword(resultSetObj.getString("student_password"));  
 				stuObj.setGender(resultSetObj.getString("student_gender"));  
-				stuObj.setAddress(resultSetObj.getString("student_address"));  
+				stuObj.setAddress(resultSetObj.getString("student_address"));				
+				stuObj.setAddress(resultSetObj.getString("student_godinaSt"));
+				stuObj.setAddress(resultSetObj.getString("student_budzet"));
+				stuObj.setAddress(resultSetObj.getString("student_stanjeRacuna"));
+				
 				studentsList.add(stuObj);  
 			}   
 			System.out.println("Total Records Fetched: " + studentsList.size());
@@ -62,12 +66,15 @@ public class DatabaseOperation {
 		int saveResult = 0;
 		String navigationResult = "";
 		try {      
-			pstmt = getConnection().prepareStatement("insert into student_record (student_name, student_email, student_password, student_gender, student_address) values (?, ?, ?, ?, ?)");			
+			pstmt = getConnection().prepareStatement("insert into student_record (student_name, student_email, student_password, student_gender, student_address,student_godinaSt,student_budzet,student_stanjeRacuna) values (?, ?, ?, ?, ?, ?, ?, ?)");			
 			pstmt.setString(1, newStudentObj.getName());
 			pstmt.setString(2, newStudentObj.getEmail());
 			pstmt.setString(3, newStudentObj.getPassword());
 			pstmt.setString(4, newStudentObj.getGender());
 			pstmt.setString(5, newStudentObj.getAddress());
+			pstmt.setString(6, newStudentObj.getgodinaSt());
+			pstmt.setBoolean(7, newStudentObj.getbudzet());
+			pstmt.setInt(8, newStudentObj.getstanjeRacuna());
 			saveResult = pstmt.executeUpdate();
 			connObj.close();
 		} catch(Exception sqlException) {
@@ -101,6 +108,10 @@ public class DatabaseOperation {
 				editRecord.setGender(resultSetObj.getString("student_gender"));
 				editRecord.setAddress(resultSetObj.getString("student_address"));
 				editRecord.setPassword(resultSetObj.getString("student_password")); 
+				
+				editRecord.setgodinaSt(resultSetObj.getString("student_godinaSt"));
+				editRecord.setbudzet(resultSetObj.getBoolean("student_budzet"));
+				editRecord.setstanjeRacuna(resultSetObj.getInt("student_stanjeRacuna")); 
 			}
 			sessionMapObj.put("editRecordObj", editRecord);
 			connObj.close();
@@ -113,13 +124,16 @@ public class DatabaseOperation {
 
 	public static String updateStudentDetailsInDB(StudentBean updateStudentObj) {
 		try {
-			pstmt = getConnection().prepareStatement("update student_record set student_name=?, student_email=?, student_password=?, student_gender=?, student_address=? where student_id=?");    
+			pstmt = getConnection().prepareStatement("update student_record set student_name=?, student_email=?, student_password=?, student_gender=?, student_address=?, student_godinaSt=?, student_budzet=?, student_stanjeRacuna=?  where student_id=?");    
 			pstmt.setString(1,updateStudentObj.getName());  
 			pstmt.setString(2,updateStudentObj.getEmail());  
 			pstmt.setString(3,updateStudentObj.getPassword());  
 			pstmt.setString(4,updateStudentObj.getGender());  
-			pstmt.setString(5,updateStudentObj.getAddress());  
-			pstmt.setInt(6,updateStudentObj.getId());  
+			pstmt.setString(5,updateStudentObj.getAddress()); 
+			pstmt.setString(6,updateStudentObj.getgodinaSt());  
+			pstmt.setBoolean(7,updateStudentObj.getbudzet());  
+			pstmt.setInt(8,updateStudentObj.getstanjeRacuna()); 			
+			pstmt.setInt(9,updateStudentObj.getId());  
 			pstmt.executeUpdate();
 			connObj.close();			
 		} catch(Exception sqlException) {
