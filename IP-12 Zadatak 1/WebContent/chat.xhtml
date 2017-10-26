@@ -1,0 +1,33 @@
+<html xmlns = "http://www.w3c.org/1999/xhtml"
+	  xmlns:f = "http://java.sun.com/jsf/core"
+	  xmlns:h = "http://java.sun.com/jsf/html">
+<h:head>
+</h:head>
+<body>
+	<h2>Lab 6.1. - JSF 2.0 Chat</h2>
+	<!-- Tabela za unos nove poruke -->
+	<h:form>
+		<h:outputLabel>Username</h:outputLabel><br/>
+		<h:inputText id="username" value="#{messages.currentMessage.userName}" required="true" requiredMessage=" * Obavezno polje" />
+		<h:message for="username" style="color: red;" /><br/><br/>
+		<h:outputLabel>Message</h:outputLabel> <br/>
+		<h:commandButton value=" :) " action="#{messages.addSmiley1}"/>
+		<h:commandButton value=" :P " action="#{messages.addSmiley2}"/>
+		<h:commandButton value=" :] " action="#{messages.addSmiley3}"/>
+		<h:commandButton value=" :D " action="#{messages.addSmiley4}"/>
+		<h:commandButton value="TimeStamp" action="#{messages.addTimeStamp}"/><br/>
+		<h:inputTextarea rows="5" cols="40" value="#{messages.currentMessage.message}"/><br/>
+		<h:commandLink value="Send Message" action="#{messages.addMessage}"/> | 
+		<h:commandLink value="Cancel" action="#{messages.cancelMessage}"/>
+		<hr/>
+	</h:form>
+	<!-- Tabela za ispis svih poruka -->
+	<h3>Last 9 Messages</h3>
+	<h:dataTable value="#{messages.messages}" var="message" width="100%" rows="9">
+		<h:column>
+		<strong><h:outputText value="#{message.userName}"/></strong> :
+		<h:outputText value="#{message.message}"/><hr/>
+		</h:column>
+	</h:dataTable>
+</body>
+</html>

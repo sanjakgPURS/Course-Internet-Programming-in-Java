@@ -1,0 +1,26 @@
+<html	xmlns="http://www.w3c.org/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title><ui:insert name="title" /></title>
+</h:head>
+<body>
+	<!-- Header -->
+	<h1>Forum za čet</h1>
+	<hr/>
+	<!-- Meni -->
+	<a href="index.xhtml">Početna stranica</a> |
+	<a href="chat.xhtml">Čet</a> |
+	<a href="pravakoristenja.xhtml">Prava korištenja</a> |
+	<a href="kontakt.xhtml">Kontakt</a>
+	<hr/>
+	<!-- Sadržaj -->
+	<ui:insert name="content" />
+	<!-- Footer -->
+	<hr />
+	<p>Ovo je primjer koji objedinjuje čet i facelete.
+		JSF 2.0 Facelets mehanizam se koristi za <strong>kreiranje templejta unutar JSF stranica.</strong></p>
+</body>
+</html>

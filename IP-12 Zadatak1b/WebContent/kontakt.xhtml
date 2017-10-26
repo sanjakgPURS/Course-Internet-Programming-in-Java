@@ -1,0 +1,26 @@
+<html 	xmlns="http://www.w3c.org/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+	<ui:composition template="/WEB-INF/template/template.xhtml">
+		<ui:define name="title">Kontakt</ui:define>
+		<ui:define name="content">
+			<form action="contact.php" method="post">
+			    Your name<br/>
+			    <input type="text" name="cf_name"/><br/><br/>
+			    Your e-mail<br/>
+			    <input type="text" name="cf_email"/><br/><br/>
+			    Message<br/>
+			    <textarea name="cf_message"/><br/><br/>
+			    <input type="submit" value="Send"/>
+			    <input type="reset" value="Clear"/>
+			</form>
+			
+		</ui:define>
+	</ui:composition>
+</body> 
+</html>
