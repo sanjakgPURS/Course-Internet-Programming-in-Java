@@ -24,7 +24,7 @@ public class ContactDB {
 	private String driver = "com.mysql.jdbc.Driver";
 	private String url = "jdbc:mysql://127.0.0.1:3306/ip14adresar?characterEncoding=utf8";
 	private String username = "root";
-	private String password = "root";
+	private String password = "test";
 	private Connection connection = null;
 	private PreparedStatement ps = null;
 	private String SELECT_CONTACTS = "SELECT * FROM contacts";
